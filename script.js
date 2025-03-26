@@ -18,15 +18,20 @@ const audio = document.getElementById("audio");
 const lyricsContainer = document.getElementById("lyrics");
 const playButton = document.getElementById("playButton");
 
+// Event listener saat tombol diklik
 playButton.addEventListener("click", () => {
-    audio.play();
-    playButton.style.display = "none";
+    audio.play().then(() => {
+        playButton.style.display = "none"; // Sembunyikan tombol setelah klik
+    }).catch(error => {
+        console.log("Autoplay gagal: ", error);
+    });
 });
 
+// Event listener saat lagu diputar untuk menampilkan lirik
 audio.addEventListener("timeupdate", () => {
-    let currentTime = audio.currentTime;
+    let currentTime = Math.floor(audio.currentTime);
 
-    let currentLyric = lyricsData.find(lyric => Math.floor(currentTime) === lyric.time);
+    let currentLyric = lyricsData.find(lyric => lyric.time === currentTime);
     
     if (currentLyric) {
         lyricsContainer.textContent = currentLyric.text;
@@ -35,3 +40,10 @@ audio.addEventListener("timeupdate", () => {
         lyricsContainer.style.opacity = 0;
     }
 });
+
+// Auto play jika user memberikan izin
+document.addEventListener("click", () => {
+    audio.play().catch(error => {
+        console.log("Autoplay diblokir oleh browser. User harus klik dulu.");
+    });
+}, { once: true });
