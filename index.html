@@ -69,7 +69,7 @@
                 currentLine += lyrics[lineIndex].charAt(charIndex);
                 document.getElementById("msg").innerHTML = currentLine;
                 charIndex++;
-                setTimeout(typeWriter, 85); // Kecepatan mengetik
+                setTimeout(typeWriter, 60); // Kecepatan mengetik
             } else {
                 currentLine += "<br>"; // Pindah ke baris berikutnya
                 lineIndex++;
@@ -89,7 +89,7 @@
     // Mulai efek mengetik setelah 1 detik
     setTimeout(() => {
         typeWriter();
-    }, 1000);
+    }, 4);
 </script>
 
 <style>
