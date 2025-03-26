@@ -52,7 +52,7 @@ h1 {
 .message p {
     font-size: 18px;
     opacity: 0;
-    animation: fadeIn 2s forwards;
+    transition: opacity 1s ease-in-out;
 }
 
 #msg1 { animation-delay: 1s; }
