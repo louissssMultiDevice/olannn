@@ -14,6 +14,21 @@ const lyricsData = [
     { time: 265, text: "Do you think I have forgotten about you? (Don't let go)" }  
 ];
 
+function showNotif() {
+    let notif = document.querySelector(".whatsapp-notif");
+    notif.style.display = "flex"; 
+    notif.style.opacity = "1";  
+
+    setTimeout(() => {
+        notif.style.opacity = "0"; 
+        setTimeout(() => { 
+            notif.style.display = "none"; 
+        }, 500);
+    }, 5000);
+}
+
+setTimeout(showNotif, 2000); // Muncul setelah 2 detik
+
 const lyricsContainer = document.getElementById("lyrics");
 const audio = document.getElementById("audio");
 const playButton = document.getElementById("playButton");
