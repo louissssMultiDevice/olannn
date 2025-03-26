@@ -50,6 +50,7 @@ playButton.addEventListener("click", () => {
 const msg1 = document.getElementById("msg1");
 const msg2 = document.getElementById("msg2");
 const msg3 = document.getElementById("msg3");
+const msg4 = document.getElementById("msg4");
 
 // Event listener saat tombol Play ditekan
 playButton.addEventListener("click", () => {
