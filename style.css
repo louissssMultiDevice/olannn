@@ -8,6 +8,13 @@ body {
     padding: 20px;
 }
 
+var typing = new Typed (".typing" ,{
+    strings : ["satuu harii", "5 jammm", "50 menitt"],
+typeSpeed: 100,
+backSpeed: 50,
+loop: true
+});
+
 .whatsapp-notif {
     display: flex;
     align-items: center;
