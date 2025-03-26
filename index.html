@@ -34,6 +34,97 @@
         <p class="message-preview">sayanggggg<br>iniii hasill codingannn akuuu<br>rateee yaaaaa</p>
     </div>
     </div>
+                 <div class="notif" id="whatsappNotif">
+    <img src="foto-profil.jpg" alt="Foto Profil" class="profile-pic">
+    <div class="notif-text">
+        <strong>The 1975 - About You</strong><br>
+        <p id="msg"></p>
+    </div>
+</div>
+
+<script>
+    const lyrics = [
+        "Do you think I have forgotten?",
+        "Do you think I have forgotten?",
+        "Do you think I have forgotten about you?",
+        "And there was something 'bout you that now I can't remember",
+        "It's the same damn thing that made my heart surrender",
+        "And I miss you on a train, I miss you in the morning",
+        "I never know what to think about",
+        "I think about you (so don't let go)",
+        "About you (so don't let go)",
+        "Do you think I have forgotten about you? (Don't let go)",
+        "About you",
+        "About you",
+        "Do you think I have forgotten about you? (Don't let go)"
+    ];
+
+    let lineIndex = 0;
+    let charIndex = 0;
+    let currentLine = "";
+
+    function typeWriter() {
+        if (lineIndex < lyrics.length) {
+            if (charIndex < lyrics[lineIndex].length) {
+                currentLine += lyrics[lineIndex].charAt(charIndex);
+                document.getElementById("msg").innerHTML = currentLine;
+                charIndex++;
+                setTimeout(typeWriter, 100); // Kecepatan mengetik
+            } else {
+                currentLine += "<br>"; // Pindah ke baris berikutnya
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(typeWriter, 500); // Jeda antar baris
+            }
+        } else {
+            setTimeout(() => {
+                document.getElementById("whatsappNotif").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("whatsappNotif").style.display = "none";
+                }, 500);
+            }, 5000);
+        }
+    }
+
+    // Mulai efek mengetik setelah 1 detik
+    setTimeout(() => {
+        typeWriter();
+    }, 1000);
+</script>
+
+<style>
+.notif {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: #222;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notif-text {
+    font-size: 14px;
+}
+
+#msg {
+    font-style: italic;
+    font-size: 12px;
+    color: #ccc;
+}
+</style>
     
     <div class="message">
         <p id="msg1">darii Handi</p>
