@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <div class="card">
-        <h1>About You - The 1975</h1>
-         <div id="lirik" class=card">
-    <div id="notif" class="card">
-    🎶 "About You" By 1975
-    <p id="notifText"></p>
-    </div>
              <div class="text">Hayyieee sayanggg, inii hasill codinggg akuuu selama beberapaa jammm<span class="typing"><span></div>
 <script src="https://cdnjs.cloudflare.com/Ajax/libs/typed.js/2.0.12/typed.min.js">
 </script>
@@ -43,6 +36,17 @@
 </div>
 
 <script>
+    const text = "Lyrics";
+let index = 0;
+const speed = 100; // Kecepatan mengetik (ms)
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, speed);
+    }
+}
     const lyrics = [
         "Do you think I have forgotten?",
         "Do you think I have forgotten?",
@@ -93,6 +97,34 @@
 </script>
 
 <style>
+.whatsapp-notif {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.whatsapp-notif:hover {
+    background-color: #1ebe5d;
+}
+
+#typing-text::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
 .notif {
     position: fixed;
     top: 20px;
@@ -136,6 +168,7 @@
  <div class="notif-text">
                  <p class="msg"></p>
  </div>
+                 <span id="typing-text"></span>
     <script src="script.js"></script>
 </body>
 </html>
