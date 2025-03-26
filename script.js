@@ -18,10 +18,16 @@ const audio = document.getElementById("audio");
 const lyricsContainer = document.getElementById("lyrics");
 const playButton = document.getElementById("playButton");
 
-// Event listener saat tombol diklik
+// Pesan spesial
+const msg1 = document.getElementById("msg1");
+const msg2 = document.getElementById("msg2");
+const msg3 = document.getElementById("msg3");
+
+// Event listener saat tombol Play ditekan
 playButton.addEventListener("click", () => {
     audio.play().then(() => {
-        playButton.style.display = "none"; // Sembunyikan tombol setelah klik
+        playButton.style.display = "none"; // Sembunyikan tombol play
+        showMessages(); // Tampilkan pesan satu per satu
     }).catch(error => {
         console.log("Autoplay gagal: ", error);
     });
@@ -41,9 +47,11 @@ audio.addEventListener("timeupdate", () => {
     }
 });
 
-// Auto play jika user memberikan izin
-document.addEventListener("click", () => {
-    audio.play().catch(error => {
-        console.log("Autoplay diblokir oleh browser. User harus klik dulu.");
-    });
-}, { once: true });
+// Fungsi untuk menampilkan pesan spesial setelah klik Play
+// fitur semua buatan handi
+function showMessages() {
+    setTimeout(() => msg1.style.opacity = 1, 1000); // Tampil setelah 1 detik
+    setTimeout(() => msg2.style.opacity = 1, 3000); // Tampil setelah 3 detik
+    setTimeout(() => msg3.style.opacity = 1, 5000); // Tampil setelah 5 detik
+    setTimeout(() => msg4.style.opacity = 1, 7000); // Tampil setelah 7 detik
+}
