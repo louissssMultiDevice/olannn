@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+     <div class="container">
         <h1>About You - The 1975</h1>
-        <button id="audio">🎵 Play Lagu 🎶</button>
-            <audio id="audio" preload="metadata">
-    <source src="lagu/about-you.mp3" type="audio/mpeg">
-    Maaf, browser kamu tidak mendukung audio.
-            </audio>
+        <audio id="audio" controls>
+            <source src="about-you.mp3" type="audio/mpeg">
+            Browser tidak mendukung audio tag.
+        </audio>
         <div id="lyricsContainer"></div>
     </div>
 
