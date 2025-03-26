@@ -17,6 +17,26 @@ const lyricsData = [
 const lyricsContainer = document.getElementById("lyrics");
 const audio = document.getElementById("audio");
 const playButton = document.getElementById("playButton");
+const notif = document.getElementById("notif");
+const notifText = document.getElementById("notifText");
+
+playButton.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().catch(error => console.log("Gagal play:", error));
+        playButton.style.display = "none"; // Sembunyikan tombol Play
+        
+        // Munculkan Notifikasi
+        notifText.innerHTML = "Dari Handi untuk Olannn";
+        notif.style.top = "20px"; // Geser ke bawah biar muncul
+        notif.style.opacity = "1";
+        
+        // Hilangkan notifikasi setelah 3 detik
+        setTimeout(() => {
+            notif.style.top = "-100px";
+            notif.style.opacity = "0";
+        }, 3000);
+    }
+});
 
 playButton.addEventListener("click", () => {
     if (audio.paused) {
