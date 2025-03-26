@@ -14,9 +14,17 @@ const lyricsData = [
     { time: 265, text: "Do you think I have forgotten about you? (Don't let go)" }  
 ];
 
-const audio = document.getElementById("audio");
 const lyricsContainer = document.getElementById("lyrics");
+const audio = document.getElementById("audio");
 const playButton = document.getElementById("playButton");
+
+playButton.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().catch(error => console.log("Gagal play:", error));
+        playButton.style.display = "none"; // Sembunyikan tombol Play
+        showMessages(); // Munculkan pesan setelah play
+    }
+});
 
 // Pesan spesial
 const msg1 = document.getElementById("msg1");
