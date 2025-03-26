@@ -7,6 +7,10 @@ body {
     padding: 0;
 }
 
+audio {
+    margin-top: 20px;
+}
+
 .container {
     padding: 20px;
 }
@@ -54,6 +58,7 @@ h1 {
 #msg1 { animation-delay: 1s; }
 #msg2 { animation-delay: 3s; }
 #msg3 { animation-delay: 5s; }
+#msg4 { animation-delay: 7s; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
