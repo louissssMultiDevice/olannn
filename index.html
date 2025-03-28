@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About You - The 1975</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Do You Love Me?</title>
 </head>
-<body>
-             <div class="text">Hayyieee sayanggg, inii hasill codinggg akuuu selama beberapaa jammm<span class="typing"><span></div>
-<script src="https://cdnjs.cloudflare.com/Ajax/libs/typed.js/2.0.12/typed.min.js">
-</script>
-                 <div class="container">
-        <h1>About You - The 1975</h1>
-        <audio id="audio" controls>
-            <source src="about-you.mp3" type="audio/mpeg">
-            Browser tidak mendukung audio tag.
-        </audio>
-        <div id="lyrics"></div>
-                 </div>
-
-    <div class="whatsapp-notifikasi">
-    <img src="handi.jpg" alt="Profile" class="profile-pic">
-    <div class="notif-content">
-        <span class="app-name">WhatsApp • Handii •  Baru Saja</span>
-        <span class="sender-name">Handii</span>
-        <p class="message-preview">sayanggggg<br>iniii hasill codingannn akuuu<br>rateee yaaaaa</p>
-    </div>
-    </div>
+    <body>
                  <div class="notif" id="whatsappNotif">
-    <img src="profile.jpg" alt="Foto Profil" class="profile-pic">
+    <img src="Handi.jpg" alt="Foto Profil" class="profile-pic">
     <div class="notif-text">
-        <strong>The 1975 - About You</strong><br>
-        <p>© Handii - Olannn</p>
+        <strong>WhatsApp • Handiii • Just Now</strong><br>
+        <p id="msg"></p>
     </div>
 </div>
 
+            <h1>Olannn, Do you love me?</h1>
+    <div class="btn-container">
+        <button class="btn no" onclick="makeYesBigger()">No</button>
+        <button class="btn yes" onclick="showThankYou()" id="yesButton">Yes</button>
+    </div>
+
 <script>
+         let yesButton = document.getElementById("yesButton");
+        let size = 16; // Ukuran awal font tombol Yes
+
+        function makeYesBigger() {
+            size += 10; // Membesarkan ukuran tombol Yes
+            yesButton.style.fontSize = size + "px";
+            yesButton.style.padding = (size / 2) + "px " + (size * 1.5) + "px";
+        }
+
+        function showThankYou() {
+            document.body.innerHTML = "<h1>Thankk youuu olannnn :3</h1>";
+        }
     const text = "Lyrics";
 let index = 0;
 const speed = 100; // Kecepatan mengetik (ms)
@@ -48,19 +45,20 @@ function typeEffect() {
     }
 }
     const lyrics = [
-        "Do you think I have forgotten?",
-        "Do you think I have forgotten?",
-        "Do you think I have forgotten about you?",
-        "And there was something 'bout you that now I can't remember",
-        "It's the same damn thing that made my heart surrender",
-        "And I miss you on a train, I miss you in the morning",
-        "I never know what to think about",
-        "I think about you (so don't let go)",
-        "About you (so don't let go)",
-        "Do you think I have forgotten about you? (Don't let go)",
-        "About you",
-        "About you",
-        "Do you think I have forgotten about you? (Don't let go)"
+        "Do You Love Me?",
+        "selalu aku lihat belakang punggung mu",
+        "di saat kau lihat belakang punggung pria lain",
+        "lagu itu dulu aku putar",
+        "terngiang di kepala ku dan selalu terputar",
+        "aku pikir aku tidak akan bisa memilikimu",
+        "tapi itu dulu",
+        "nyatanya sekarang kita bisa sampai sejauh ini",
+        "awalnya aku tidak menyangka",
+        "kawam kawan ku juga tidak menyangka",
+        "terimakasih yaaa, sudaaa mauu nerimaa akuu",
+        "seajuh ini cuma kamu yang bisa membuat",
+        "diri ini jatuh cinta samgat dalam",
+        "i lovvvv uuuu olannnnn",
     ];
 
     let lineIndex = 0;
@@ -76,7 +74,7 @@ function typeEffect() {
                 setTimeout(typeWriter, 70); // Kecepatan mengetik
             } else {
                 currentLine += "<br>"; // Pindah ke baris berikutnya
-                lineIndex++;
+               lineIndex++;
                 charIndex = 0;
                 setTimeout(typeWriter, 500); // Jeda antar baris
             }
@@ -97,6 +95,31 @@ function typeEffect() {
 </script>
 
 <style>
+
+h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+    }
 .whatsapp-notifikasi {
     position: fixed;
     bottom: 20px;
@@ -158,19 +181,6 @@ function typeEffect() {
 }
 </style>
     
-    <div class="message">
-        <p id="msg1">darii Handi</p>
-        <p id="msg2">untuuuk olannn</p>
-        <p id="msg3">dibuatt darii hatii untukk hatiii</p>
-        <p id="msg4">laguu inii judulnyaa aboutt youu, kaayaaa hariikuuu yangg always thinking about youu</p>
-    </div>
-                 <strong>Lyrics</strong>
-                 <p class="msg"></p>
- </div>
-                 <div class="notif-text">
-                 <p id="typing-text"></p>
-    
-                 </div>
     <script src="script.js"></script>
 </body>
 </html>
