@@ -1,181 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Love Me?</title>
-</head>
-    <body>
+  <meta charset="UTF-8">
+  <title>Handi Cape Tauu</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e;
+      color: #00ffee;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-            <h1>Olannn, Do you love me?</h1>
-    <div class="btn-container">
-        <button class="btn no" onclick="makeYesBigger()">No</button>
-        <button class="btn yes" onclick="showThankYou()" id="yesButton">Yes</button>
-    </div>
+    .lyrics-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .line {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ffee;
+      width: 0;
+      opacity: 0;
+      animation: typing 2s steps(30, end) forwards, showLine 0.5s ease forwards;
+    }
+
+    @keyframes typing {
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes showLine {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="lyrics-container" id="lyrics">
+  <!-- Baris lirik akan dimasukkan lewat JS -->
+</div>
 
 <script>
-         let yesButton = document.getElementById("yesButton");
-        let size = 16; // Ukuran awal font tombol Yes
+  const lyrics = [
+    "Langit dan laut saling membantu",
+    "Menciptakan awan hujan pun turun",
+    "Ketika dunia saling membantu",
+    "Lihat cinta mana yang tak jadi satu",
+    "Aku mencintai mu lebih dari apapun itu",
+    "Aku selalu menunggu notif mu",
+    "di handphone ku",
+    "Walau tak ada yang pasti",
+    "yang kau beri hanya mimpi",
+    "Baru kau sapa ku tersipu",
+    "Kau puji lupa amarahku",
+    "Baru sebulan kita sedekat itu",
+    "Beri tahu aku apa yang kau mau",
+    "Jangan kau gantung perasaanku",
+    "Kau bertingkah seakan kau menginginkanku",
+    "Namun terkadang kau mengabaikanku"
+  ];
 
-        function makeYesBigger() {
-            size += 10; // Membesarkan ukuran tombol Yes
-            yesButton.style.fontSize = size + "px";
-            yesButton.style.padding = (size / 2) + "px " + (size * 1.5) + "px";
-        }
+  const container = document.getElementById("lyrics");
 
-        function showThankYou() {
-            document.body.innerHTML = "<h1>Thankk youuu, anddd ii loovvvv uuu morrr olannnn :3</h1>";
-        }
-    const text = "Lyrics";
-let index = 0;
-const speed = 100; // Kecepatan mengetik (ms)
-
-function typeEffect() {
-    if (index < text.length) {
-        document.getElementById("typing-text").innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, speed);
-    }
-}
-    const lyrics = [
-        "Do You Love Me?",
-        "Thankk youuu olannnnnn andd",
-        "ii loovvvv uuu morrr olannnn :3",
-        "selalu aku lihat belakang punggung mu",
-        "di saat kau lihat belakang punggung pria lain",
-        "lagu itu dulu aku putar",
-        "terngiang di kepala ku dan selalu terputar",
-        "aku pikir aku tidak akan bisa memilikimu",
-        "tapi itu dulu",
-        "nyatanya sekarang kita bisa sampai sejauh ini",
-        "awalnya aku tidak menyangka",
-        "kawam kawan ku juga tidak menyangka",
-        "terimakasih yaaa, sudaaa mauu nerimaa akuu",
-        "seajuh ini cuma kamu yang bisa membuat",
-        "diri ini jatuh cinta samgat dalam",
-        "i lovvvv uuuu olannnnn",
-    ];
-
-    let lineIndex = 0;
-    let charIndex = 0;
-    let currentLine = "";
-
-    function typeWriter() {
-        if (lineIndex < lyrics.length) {
-            if (charIndex < lyrics[lineIndex].length) {
-                currentLine += lyrics[lineIndex].charAt(charIndex);
-                document.getElementById("msg").innerHTML = currentLine;
-                charIndex++;
-                setTimeout(typeWriter, 70); // Kecepatan mengetik
-            } else {
-                currentLine += "<br>"; // Pindah ke baris berikutnya
-               lineIndex++;
-                charIndex = 0;
-                setTimeout(typeWriter, 500); // Jeda antar baris
-            }
-        } else {
-            setTimeout(() => {
-                document.getElementById("whatsappNotif").style.opacity = "0";
-                setTimeout(() => {
-                    document.getElementById("whatsappNotif").style.display = "none";
-                }, 500);
-            }, 5000);
-        }
-    }
-
-    // Mulai efek mengetik setelah 1 detik
-    setTimeout(() => {
-        typeWriter();
-    }, 1000);
+  lyrics.forEach((line, i) => {
+    const el = document.createElement("div");
+    el.className = "line";
+    el.style.animationDelay = `${i * 3}s`; // Delay antar baris
+    el.textContent = line;
+    container.appendChild(el);
+  });
 </script>
 
-<style>
-
-h1 {
-            font-size: 24px;
-            color: #333;
-        }
-        .btn-container {
-            margin-top: 20px;
-        }
-        .btn {
-            font-size: 16px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        .yes {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .no {
-            background-color: #f44336;
-            color: white;
-    }
-.whatsapp-notifikasi {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 16px;
-}
-
-.whatsapp-notif:hover {
-    background-color: #1ebe5d;
-}
-
-#typing-text:after {
-    content: "|";
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-.notif {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 300px;
-    background: #222;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: opacity 0.5s ease-in-out;
-}
-
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.notif-text {
-    font-size: 14px;
-}
-
-#msg {
-    font-style: italic;
-    font-size: 12px;
-    color: #ccc;
-}
-</style>
-    
-    <script src="script.js"></script>
 </body>
 </html>
